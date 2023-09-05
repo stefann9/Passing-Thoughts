@@ -1,4 +1,13 @@
+import { useEffect } from "react";
+
 export function Thought({ thought, removeThought }) {
+    useEffect(() => {
+        const timeRemaining = thought.expiresAt - Date.now();
+        const timeoutID = setTimeout(() => {
+            removeThought(thought.id);
+        }, timeRemaining);
+        return () => clearInterval(timeoutID);
+    }, [thought]);
     return (
         <li className="Thought">
             <button
