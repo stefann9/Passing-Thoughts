@@ -4,7 +4,7 @@ import { Thought } from "./components/Thought/Thought";
 import { generateId, getNewExpirationTime } from "./utilities/utilities";
 
 export default function App() {
-    const [thoughts] = useState([
+    const [thoughts, setThoughts] = useState([
         {
             id: generateId(),
             text: "This is a place for your passing thoughts.",
@@ -17,13 +17,17 @@ export default function App() {
         },
     ]);
 
+    const addThought = (thought) => {
+        setThoughts([thought, ...thoughts]);
+    };
+
     return (
         <div className="App">
             <header>
                 <h1>Passing Thoughts</h1>
             </header>
             <main>
-                <AddThoughtForm />
+                <AddThoughtForm addThought={addThought} />
                 <ul className="thoughts">
                     {thoughts.map((thought) => (
                         <Thought key={thought.id} thought={thought} />
