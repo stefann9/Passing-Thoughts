@@ -1,3 +1,6 @@
+# About
+This is the Passing Thoughts project from Learn React Hooks – codecademy. Which focuses on improving your react hooks knowledge.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
